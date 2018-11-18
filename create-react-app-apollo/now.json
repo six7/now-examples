@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "now-examples",
+  "builds": [
+    { "src": "create-react-app/package.json", "use": "@now/static-build" },
+    { "src": "apollo/index.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/create-react-app/static/$1" },
+    { "src": "/graphql", "dest": "/apollo/index.js" },
+    { "src": ".*", "dest": "/create-react-app/index.html" }
+  ]
+}
